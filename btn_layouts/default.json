@@ -1,0 +1,92 @@
+// retrobuda button layout - BASE for every core. Applied before btn_layouts/<core>/default.json;
+// a core file only needs the keys it changes, but the shipped core files repeat everything on purpose.
+// Labels are the plain libretro RetroPad names. Pad defaults keep libretro B on the south face button
+// (A/B and X/Y swapped against the Xbox letters), which every shipped core expects. Docs: docs/CONTROLS.md
+{
+  "schema": 1,
+  "name": "RetroPad",
+
+  // Every control, in the order the F4 menu lists them. Key = libretro id (B Y SELECT START UP DOWN
+  // LEFT RIGHT A X L1 R1 L2 R2 L3 R3) or stick direction (LS_* RS_*); value = the label shown.
+  "labels": {
+    "UP": "Up", "DOWN": "Down", "LEFT": "Left", "RIGHT": "Right", "Y": "Y", "X": "X", "B": "B", "A": "A", "L1": "L1", "R1": "R1", "L2": "L2", "R2": "R2", "L3": "L3", "R3": "R3", "SELECT": "Select", "START": "Start",
+    "LS_UP": "Left Stick Up", "LS_DOWN": "Left Stick Down", "LS_LEFT": "Left Stick Left", "LS_RIGHT": "Left Stick Right", "RS_UP": "Right Stick Up", "RS_DOWN": "Right Stick Down", "RS_LEFT": "Right Stick Left", "RS_RIGHT": "Right Stick Right"
+  },
+
+  // true = not listed, not drawn, no default input (the game never reads it). A user binding still works.
+  "hide": {
+    "UP": false, "DOWN": false, "LEFT": false, "RIGHT": false, "Y": false, "X": false, "B": false, "A": false, "L1": false, "R1": false, "L2": false, "R2": false, "L3": false, "R3": false, "SELECT": false, "START": false,
+    "LS_UP": false, "LS_DOWN": false, "LS_LEFT": false, "LS_RIGHT": false, "RS_UP": false, "RS_DOWN": false, "RS_LEFT": false, "RS_RIGHT": false
+  },
+
+  // Default physical inputs. pad -> slot 1, keyboard -> slot 2 (player 1), keyboard_p2 -> slot 2 of the
+  // local player 2 (only with the "Keyboard only" device). Pad names are Xbox positions: A south, B east,
+  // X west, Y north, LB RB LT RT LS RS BACK START, DPAD_*, LS_* / RS_* = stick past half deflection.
+  // null = no default. Binds are mapped here too, by their key.
+  "mapping": {
+    "pad": {
+      "UP": "DPAD_UP", "DOWN": "DPAD_DOWN", "LEFT": "DPAD_LEFT", "RIGHT": "DPAD_RIGHT", "Y": "X", "X": "Y", "B": "A", "A": "B", "L1": "LB", "R1": "RB", "L2": "LT", "R2": "RT", "L3": "LS", "R3": "RS", "SELECT": "BACK", "START": "START",
+      "LS_UP": "LS_UP", "LS_DOWN": "LS_DOWN", "LS_LEFT": "LS_LEFT", "LS_RIGHT": "LS_RIGHT", "RS_UP": "RS_UP", "RS_DOWN": "RS_DOWN", "RS_LEFT": "RS_LEFT", "RS_RIGHT": "RS_RIGHT",
+      "A_B": null, "X_Y": null, "B_Y": null, "A_X": null, "A_Y": null, "B_X": null
+    },
+    "keyboard": {
+      "UP": "KEY:W", "DOWN": "KEY:S", "LEFT": "KEY:A", "RIGHT": "KEY:D", "Y": "KEY:J", "X": "KEY:I", "B": "KEY:K", "A": "KEY:L", "L1": "KEY:Q", "R1": "KEY:O", "L2": "KEY:1", "R2": "KEY:2", "L3": "KEY:3", "R3": "KEY:4", "SELECT": "KEY:Right Shift", "START": "KEY:Return",
+      "LS_UP": "KEY:Up", "LS_DOWN": "KEY:Down", "LS_LEFT": "KEY:Left", "LS_RIGHT": "KEY:Right", "RS_UP": null, "RS_DOWN": null, "RS_LEFT": null, "RS_RIGHT": null,
+      "A_B": null, "X_Y": null, "B_Y": null, "A_X": null, "A_Y": null, "B_X": null
+    },
+    "keyboard_p2": {
+      "UP": "KEY:Keypad 8", "DOWN": "KEY:Keypad 2", "LEFT": "KEY:Keypad 4", "RIGHT": "KEY:Keypad 6", "Y": "KEY:Keypad 7", "X": "KEY:Keypad 9", "B": "KEY:Keypad 1", "A": "KEY:Keypad 3", "L1": "KEY:Keypad /", "R1": "KEY:Keypad *", "L2": "KEY:Keypad -", "R2": "KEY:Keypad +", "L3": null, "R3": null, "SELECT": "KEY:Keypad 0", "START": "KEY:Keypad Enter",
+      "LS_UP": null, "LS_DOWN": null, "LS_LEFT": null, "LS_RIGHT": null, "RS_UP": null, "RS_DOWN": null, "RS_LEFT": null, "RS_RIGHT": null,
+      "A_B": null, "X_Y": null, "B_Y": null, "A_X": null, "A_Y": null, "B_X": null
+    }
+  },
+
+  // One input presses several buttons at once. Key: [A-Za-z0-9_-]{1,32}, max 16 per layout. A file that has a
+  // "binds" section defines the whole set (lower layers' binds are dropped, not added); {} = no binds.
+  "binds": {
+    "A_B": { "label": "A+B", "buttons": ["A", "B"] },
+    "X_Y": { "label": "X+Y", "buttons": ["X", "Y"] },
+    "B_Y": { "label": "B+Y", "buttons": ["B", "Y"] },
+    "A_X": { "label": "A+X", "buttons": ["A", "X"] },
+    "A_Y": { "label": "A+Y", "buttons": ["A", "Y"] },
+    "B_X": { "label": "B+X", "buttons": ["B", "X"] }
+  },
+
+  // Button Check view: [col, row] or [col, row, w, h] on a grid, [0,0] top-left. Replaced wholesale by a
+  // higher layer that defines its own grid.
+  "button_check": {
+    "grid": [12, 10],
+    "cells": {
+      "L2": [0, 0, 2, 1],
+      "L1": [0, 1, 2, 1],
+      "R2": [10, 0, 2, 1],
+      "R1": [10, 1, 2, 1],
+      "SELECT": [4, 2],
+      "START": [7, 2],
+      "UP": [1, 3],
+      "LEFT": [0, 4],
+      "RIGHT": [2, 4],
+      "DOWN": [1, 5],
+      "X": [9, 3],
+      "Y": [8, 4],
+      "A": [10, 4],
+      "B": [9, 5],
+      "L3": [3, 7],
+      "LS_UP": [3, 6],
+      "LS_LEFT": [2, 7],
+      "LS_RIGHT": [4, 7],
+      "LS_DOWN": [3, 8],
+      "R3": [8, 7],
+      "RS_UP": [8, 6],
+      "RS_LEFT": [7, 7],
+      "RS_RIGHT": [9, 7],
+      "RS_DOWN": [8, 8],
+      "A_B": [0, 9, 2, 1],
+      "X_Y": [2, 9, 2, 1],
+      "B_Y": [4, 9, 2, 1],
+      "A_X": [6, 9, 2, 1],
+      "A_Y": [8, 9, 2, 1],
+      "B_X": [10, 9, 2, 1]
+    }
+  }
+}

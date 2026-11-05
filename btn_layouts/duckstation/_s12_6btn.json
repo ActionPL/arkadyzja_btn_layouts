@@ -1,0 +1,34 @@
+// Shared profile: Namco System 12 games with the 6-button panel.
+// source: duckstation-netplay src/core/s12/s12_gamedb.cpp (6btn map): Y=LP X=MP R=HP B=LK A=MK L=HK.
+// NOTE: these are the core's own descriptor strings; the real Soul Calibur cabinet labels its
+// buttons A/B/K/G - verify before relying on them.
+{
+  "schema": 1,
+  "labels": {
+    "Y": "LP", "X": "MP", "R1": "HP", "B": "LK", "A": "MK", "L1": "HK",
+    "L2": "Test Menu", "R2": "Service Credit",
+    "SELECT": "Coin", "START": "Start",
+    "UP": "Up", "DOWN": "Down", "LEFT": "Left", "RIGHT": "Right"
+  },
+  "hide": {
+    "L3": true, "R3": true,
+    "LS_UP": true, "LS_DOWN": true, "LS_LEFT": true, "LS_RIGHT": true,
+    "RS_UP": true, "RS_DOWN": true, "RS_LEFT": true, "RS_RIGHT": true
+  },
+  // a "binds" section replaces the base combos wholesale: this panel has none
+  "binds": {},
+  "mapping": {
+    "pad": { "L2": null, "R2": null },
+    "keyboard": { "L2": null, "R2": null }
+  },
+  "button_check": {
+    "grid": [12, 10],
+    "cells": {
+      "UP": [2, 3], "LEFT": [1, 4], "RIGHT": [3, 4], "DOWN": [2, 5],
+      "Y": [6, 3], "X": [8, 3], "R1": [10, 3],
+      "B": [6, 5], "A": [8, 5], "L1": [10, 5],
+      "SELECT": [1, 8], "START": [3, 8],
+      "L2": [0, 0, 2, 1], "R2": [10, 0, 2, 1]
+    }
+  }
+}

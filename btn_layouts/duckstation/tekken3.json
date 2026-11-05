@@ -1,0 +1,2 @@
+// Tekken 3 (Namco System 12) - 4-button panel. source: s12_gamedb.cpp "4btn".
+{ "schema": 1, "name": "Tekken 3 (System 12)", "extends": "_s12_4btn" }

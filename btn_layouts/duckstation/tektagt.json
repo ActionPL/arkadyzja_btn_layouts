@@ -1,0 +1,26 @@
+// Tekken Tag Tournament (Namco System 12) - 4 buttons + Tag. source: s12_gamedb.cpp "5btn" (R1 = Tag).
+// Inherits every 1/2/3/4 combination from _s12_4btn; Tag takes RB, so the 2+4 throw moves to RT and 3+4 loses its default.
+{
+  "schema": 1,
+  "name": "Tekken Tag Tournament (System 12)",
+  "extends": "_s12_4btn",
+  "labels": { "R1": "Tag" },
+  "hide": { "R1": false },
+  "mapping": {
+    "pad": { "R1": "RB", "b24": "RT", "b34": null },
+    "keyboard": { "R1": "KEY:O", "b24": "KEY:P", "b34": null }
+  },
+  "button_check": {
+    "grid": [12, 10],
+    "cells": {
+      "L2": [0, 0, 2, 1], "R2": [10, 0, 2, 1],
+      "UP": [2, 2], "LEFT": [1, 3], "RIGHT": [3, 3], "DOWN": [2, 4],
+      "Y": [6, 2], "X": [8, 2], "R1": [10, 3],
+      "B": [6, 4], "A": [8, 4],
+      "SELECT": [1, 5], "START": [3, 5],
+      "b12": [0, 7, 2, 1], "b34": [2, 7, 2, 1], "b13": [4, 7, 2, 1], "b24": [6, 7, 2, 1], "b14": [8, 7, 2, 1], "b23": [10, 7, 2, 1],
+      "b123": [0, 8, 3, 1], "b124": [3, 8, 3, 1], "b134": [6, 8, 3, 1], "b234": [9, 8, 3, 1],
+      "b1234": [0, 9, 12, 1]
+    }
+  }
+}

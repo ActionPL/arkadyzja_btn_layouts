@@ -1,0 +1,45 @@
+// Soulcalibur II (GameCube, GRSEAF) on the Dolphin core. Arcade-style panel: A = horizontal, B = vertical,
+// K = kick, G = guard - on the GameCube pad A=A, Y=B, X=K, B=G. Z, L and R keep the GameCube defaults
+// (RB, LT, RT); the sticks, half-press L/R and the Triforce buttons are hidden. Every A/B/K/G combination
+// is a bind (no default input: pick your own in F4).
+{
+  "schema": 1,
+  "name": "Soulcalibur II (GameCube)",
+  "labels": {
+    "A": "A - horizontal", "Y": "B - vertical", "X": "K - kick", "B": "G - guard",
+    "R1": "Z", "L2": "L", "R2": "R",
+    "UP": "Up", "DOWN": "Down", "LEFT": "Left", "RIGHT": "Right", "START": "Start"
+  },
+  "hide": {
+    "L1": true, "L3": true, "R3": true, "SELECT": true,
+    "LS_UP": true, "LS_DOWN": true, "LS_LEFT": true, "LS_RIGHT": true,
+    "RS_UP": true, "RS_DOWN": true, "RS_LEFT": true, "RS_RIGHT": true
+  },
+  // This section defines the whole bind set for the game (the base combos are dropped).
+  "binds": {
+    "A_B":     { "label": "A+B",     "buttons": ["A", "Y"] },
+    "A_K":     { "label": "A+K",     "buttons": ["A", "X"] },
+    "A_G":     { "label": "A+G",     "buttons": ["A", "B"] },
+    "B_K":     { "label": "B+K",     "buttons": ["Y", "X"] },
+    "B_G":     { "label": "B+G",     "buttons": ["Y", "B"] },
+    "G_K":     { "label": "G+K",     "buttons": ["B", "X"] },
+    "A_B_K":   { "label": "A+B+K",   "buttons": ["A", "Y", "X"] },
+    "A_B_G":   { "label": "A+B+G",   "buttons": ["A", "Y", "B"] },
+    "A_G_K":   { "label": "A+G+K",   "buttons": ["A", "B", "X"] },
+    "B_G_K":   { "label": "B+G+K",   "buttons": ["Y", "B", "X"] },
+    "A_B_G_K": { "label": "A+B+G+K", "buttons": ["A", "Y", "B", "X"] }
+  },
+  "button_check": {
+    "grid": [12, 10],
+    "cells": {
+      "L2": [0, 0, 2, 1], "R2": [10, 0, 2, 1],
+      "UP": [2, 2], "LEFT": [1, 3], "RIGHT": [3, 3], "DOWN": [2, 4],
+      "Y": [8, 2], "X": [10, 3], "R1": [11, 1],
+      "A": [7, 3], "B": [8, 4],
+      "START": [2, 5],
+      "A_B": [0, 7, 2, 1], "A_K": [2, 7, 2, 1], "A_G": [4, 7, 2, 1], "B_K": [6, 7, 2, 1], "B_G": [8, 7, 2, 1], "G_K": [10, 7, 2, 1],
+      "A_B_K": [0, 8, 3, 1], "A_B_G": [3, 8, 3, 1], "A_G_K": [6, 8, 3, 1], "B_G_K": [9, 8, 3, 1],
+      "A_B_G_K": [0, 9, 12, 1]
+    }
+  }
+}

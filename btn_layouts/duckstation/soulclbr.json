@@ -1,0 +1,2 @@
+// Soul Calibur (Namco System 12) - 6-button panel per the core's descriptor table. See _s12_6btn.json.
+{ "schema": 1, "name": "Soul Calibur (System 12)", "extends": "_s12_6btn" }
